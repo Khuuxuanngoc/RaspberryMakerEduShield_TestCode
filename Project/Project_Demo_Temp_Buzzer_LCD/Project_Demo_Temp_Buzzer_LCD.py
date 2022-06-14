@@ -77,8 +77,8 @@ def thread_function_showI2C_LCD(name):
         stringLine_1 = "DS18B20 value: %0.1f" %(temDS18B20)
         stringLine_2 = "DHT T: %0.1f" %(temDHT)
         
-        lcd_i2c_lib.lcd_string(stringLine_1, lcd_i2c_lib.LCD_LINE_3)
-        lcd_i2c_lib.lcd_string(str(temDS18B20), lcd_i2c_lib.LCD_LINE_2)
+        lcd_i2c_lib.lcd_string(stringLine_1, lcd_i2c_lib.LCD_LINE_1)
+        lcd_i2c_lib.lcd_string(stringLine_2, lcd_i2c_lib.LCD_LINE_2)
         
         #logging.info("Thread %s: starting show LCD DHT: %d, DS: %d", name, temDHT,temDS18B20)
         time.sleep(0.2)
