@@ -39,17 +39,17 @@ class L9110:
         return data
 
     def dc_data_send(self, dc, percent, direction):
-    """
-    Create a list of data to be sent to the L9110 in DC motor mode.
+        """
+        Create a list of data to be sent to the L9110 in DC motor mode.
 
-    Args:
-        dc (int): 0 for MA or 1 for MB.
-        percent (int): Speed percentage (0-100) of the DC motor.
-        direction (int): 0 for clockwise (CW) or 1 for counterclockwise (CCW).
+        Args:
+            dc (int): 0 for MA or 1 for MB.
+            percent (int): Speed percentage (0-100) of the DC motor.
+            direction (int): 0 for clockwise (CW) or 1 for counterclockwise (CCW).
 
-    Returns:
-        list: A list of data to be sent via i2c.
-    """
+        Returns:
+            list: A list of data to be sent via i2c.
+        """
 
         data = [self.i2c_address, self.MODE_DC, 0, 0, 0, 0]
         data[2] = dc
@@ -59,16 +59,16 @@ class L9110:
         return data
 
     def set_address(self, old_address, new_address):
-    """
-    Change the I2C address of the L9110 device.
+        """
+        Change the I2C address of the L9110 device.
 
-    Args:
-        old_address (int): The current I2C address of the device.
-        new_address (int): The new I2C address to be set for the device.
+        Args:
+            old_address (int): The current I2C address of the device.
+            new_address (int): The new I2C address to be set for the device.
 
-    Raises:
-        IOError: If there is an error in communication with the device.
-    """
+        Raises:
+            IOError: If there is an error in communication with the device.
+        """
 
         try:
             self.bus.write_i2c_block_data(old_address, new_address, [self.MODE_SET_ADDR, 0, 0, 0, new_address + self.MODE_SET_ADDR])
